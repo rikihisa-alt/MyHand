@@ -1,0 +1,333 @@
+[
+  {
+    "id": "q001",
+    "text": "ポーカーで一番気持ちいい瞬間は？",
+    "type": "quad",
+    "options": [
+      { "label": "大きなブラフが通ったとき", "scores": { "romance": 3, "aggression": 2, "creative": 2 } },
+      { "label": "ナッツでバリューを最大化できたとき", "scores": { "utility": 3, "strategic": 2 } },
+      { "label": "完璧なフォールドができたとき", "scores": { "stability": 3, "strategic": 2 } },
+      { "label": "クレイジーなハンドで勝ったとき", "scores": { "meme": 4, "romance": 1 } }
+    ]
+  },
+  {
+    "id": "q002",
+    "text": "プリフロップでA5sが配られた。あなたの第一感は？",
+    "type": "quad",
+    "options": [
+      { "label": "3betしてポットを奪いたい", "scores": { "aggression": 3, "strategic": 1 } },
+      { "label": "ポジション次第でコール", "scores": { "stability": 2, "strategic": 2 } },
+      { "label": "スーテッドだしプレイしたい", "scores": { "romance": 2, "creative": 1 } },
+      { "label": "フォールドが正解だと思う", "scores": { "utility": 2, "stability": 2 } }
+    ]
+  },
+  {
+    "id": "q003",
+    "text": "トーナメントとキャッシュゲーム、どっちが好き？",
+    "type": "binary",
+    "options": [
+      { "label": "トーナメント", "scores": { "romance": 2, "aggression": 1, "strategic": 1 } },
+      { "label": "キャッシュゲーム", "scores": { "utility": 2, "stability": 1, "strategic": 1 } }
+    ]
+  },
+  {
+    "id": "q004",
+    "text": "GTOとエクスプロイト、どちらを重視する？",
+    "type": "binary",
+    "options": [
+      { "label": "GTO（バランス重視）", "scores": { "strategic": 3, "stability": 1 } },
+      { "label": "エクスプロイト（相手に合わせる）", "scores": { "creative": 2, "aggression": 1, "utility": 1 } }
+    ]
+  },
+  {
+    "id": "q005",
+    "text": "スタックが深いとき、どう感じる？",
+    "type": "quad",
+    "options": [
+      { "label": "ワクワクする。大きなポットが作れる", "scores": { "romance": 2, "aggression": 2 } },
+      { "label": "慎重になる。リスクが大きい", "scores": { "stability": 3, "utility": 1 } },
+      { "label": "複雑なラインが取れて楽しい", "scores": { "creative": 3, "strategic": 1 } },
+      { "label": "特に何も変わらない", "scores": { "meme": 1, "stability": 1 } }
+    ]
+  },
+  {
+    "id": "q006",
+    "text": "ブラフの頻度はどのくらい？",
+    "type": "scale",
+    "options": [
+      { "label": "ほぼしない", "scores": { "stability": 3, "utility": 1 } },
+      { "label": "たまに", "scores": { "stability": 1, "strategic": 1 } },
+      { "label": "バランスを意識して", "scores": { "strategic": 3 } },
+      { "label": "かなり多め", "scores": { "aggression": 2, "creative": 1 } },
+      { "label": "ブラフこそポーカー", "scores": { "aggression": 3, "romance": 2, "meme": 1 } }
+    ]
+  },
+  {
+    "id": "q007",
+    "text": "ポーカー仲間からどう思われたい？",
+    "type": "quad",
+    "options": [
+      { "label": "強いプレイヤーだと認められたい", "scores": { "strategic": 2, "utility": 2 } },
+      { "label": "面白いプレイをする奴だと思われたい", "scores": { "creative": 2, "meme": 2 } },
+      { "label": "怖い存在だと思われたい", "scores": { "aggression": 3, "romance": 1 } },
+      { "label": "堅実で信頼できると思われたい", "scores": { "stability": 3, "utility": 1 } }
+    ]
+  },
+  {
+    "id": "q008",
+    "text": "負けが込んでいるとき、どうする？",
+    "type": "quad",
+    "options": [
+      { "label": "取り返すためにギアを上げる", "scores": { "aggression": 3, "romance": 1 } },
+      { "label": "冷静にプレイを続ける", "scores": { "stability": 2, "strategic": 2 } },
+      { "label": "席を立って休憩する", "scores": { "utility": 2, "stability": 2 } },
+      { "label": "開き直ってクレイジーなプレイをする", "scores": { "meme": 3, "creative": 1 } }
+    ]
+  },
+  {
+    "id": "q009",
+    "text": "72oが配られた。ブラインド以外のポジション。",
+    "type": "quad",
+    "options": [
+      { "label": "絶対フォールド", "scores": { "utility": 2, "stability": 2 } },
+      { "label": "たまにはレイズしてみる", "scores": { "meme": 2, "aggression": 1, "creative": 1 } },
+      { "label": "相手次第ではブラフレイズ", "scores": { "aggression": 2, "creative": 2 } },
+      { "label": "72oチャレンジ中なのでオールイン", "scores": { "meme": 4, "romance": 1 } }
+    ]
+  },
+  {
+    "id": "q010",
+    "text": "ポーカーの勉強はどのくらいする？",
+    "type": "scale",
+    "options": [
+      { "label": "ほとんどしない", "scores": { "meme": 2, "romance": 1 } },
+      { "label": "たまに動画を見る", "scores": { "romance": 1, "creative": 1 } },
+      { "label": "定期的にハンドレビューする", "scores": { "strategic": 2, "utility": 1 } },
+      { "label": "ソルバーを日常的に使う", "scores": { "strategic": 3, "utility": 1 } },
+      { "label": "コーチングも受けている", "scores": { "strategic": 2, "utility": 2, "stability": 1 } }
+    ]
+  },
+  {
+    "id": "q011",
+    "text": "フロップでオープンエンドストレートドローを引いた。相手がベット。",
+    "type": "quad",
+    "options": [
+      { "label": "コールしてドローを追う", "scores": { "stability": 1, "romance": 1 } },
+      { "label": "レイズしてセミブラフ", "scores": { "aggression": 3, "creative": 1 } },
+      { "label": "ポットオッズを計算してから決める", "scores": { "strategic": 2, "utility": 2 } },
+      { "label": "フォールド。ドローは追わない", "scores": { "stability": 3 } }
+    ]
+  },
+  {
+    "id": "q012",
+    "text": "ポーカーをやる一番の理由は？",
+    "type": "quad",
+    "options": [
+      { "label": "お金を稼ぎたい", "scores": { "utility": 4 } },
+      { "label": "知的なゲームとして楽しい", "scores": { "strategic": 2, "creative": 2 } },
+      { "label": "スリルとドラマが好き", "scores": { "romance": 3, "aggression": 1 } },
+      { "label": "仲間と過ごす時間が好き", "scores": { "meme": 2, "stability": 1 } }
+    ]
+  },
+  {
+    "id": "q013",
+    "text": "マルチウェイポットでの立ち回りは？",
+    "type": "quad",
+    "options": [
+      { "label": "タイトに、ナッツ級のみプレイ", "scores": { "stability": 3, "utility": 1 } },
+      { "label": "ポジションを活かしてスチール狙い", "scores": { "aggression": 2, "strategic": 2 } },
+      { "label": "ドロー系ハンドで参加して大物狙い", "scores": { "romance": 2, "creative": 2 } },
+      { "label": "カオスを楽しむ", "scores": { "meme": 3, "creative": 1 } }
+    ]
+  },
+  {
+    "id": "q014",
+    "text": "ポジションの重要性をどう考える？",
+    "type": "scale",
+    "options": [
+      { "label": "あまり気にしない", "scores": { "meme": 2, "romance": 1 } },
+      { "label": "少し意識する", "scores": { "romance": 1 } },
+      { "label": "重要だと思う", "scores": { "strategic": 2 } },
+      { "label": "非常に重要。ハンド選択に直結", "scores": { "strategic": 3, "utility": 1 } },
+      { "label": "ポジション＝すべて", "scores": { "strategic": 3, "stability": 1 } }
+    ]
+  },
+  {
+    "id": "q015",
+    "text": "理想のプレイスタイルは？",
+    "type": "quad",
+    "options": [
+      { "label": "TAG（タイトアグレッシブ）", "scores": { "strategic": 2, "aggression": 1, "stability": 1 } },
+      { "label": "LAG（ルースアグレッシブ）", "scores": { "aggression": 3, "creative": 1 } },
+      { "label": "タイトパッシブ", "scores": { "stability": 3, "utility": 1 } },
+      { "label": "マニアック", "scores": { "meme": 2, "aggression": 2, "romance": 1 } }
+    ]
+  },
+  {
+    "id": "q016",
+    "text": "大きなポットで負けた直後、次のハンドはどうプレイする？",
+    "type": "quad",
+    "options": [
+      { "label": "普段通りプレイする", "scores": { "stability": 3, "strategic": 1 } },
+      { "label": "しばらくタイトにする", "scores": { "stability": 2, "utility": 2 } },
+      { "label": "すぐに取り返しにいく", "scores": { "aggression": 3, "romance": 1 } },
+      { "label": "「次こそは」と燃える", "scores": { "romance": 2, "meme": 1, "aggression": 1 } }
+    ]
+  },
+  {
+    "id": "q017",
+    "text": "テーブルで一番避けたいタイプの相手は？",
+    "type": "quad",
+    "options": [
+      { "label": "GTOをマスターした上級者", "scores": { "romance": 1, "creative": 1, "meme": 1 } },
+      { "label": "何をしてくるかわからないマニアック", "scores": { "stability": 2, "utility": 1 } },
+      { "label": "何もせず固いだけのニット", "scores": { "aggression": 1, "creative": 1 } },
+      { "label": "ラックが異常に良い人", "scores": { "meme": 2, "romance": 1 } }
+    ]
+  },
+  {
+    "id": "q018",
+    "text": "ポーカーの腕前に自信がある？",
+    "type": "scale",
+    "options": [
+      { "label": "まだまだ初心者", "scores": { "meme": 1, "romance": 1 } },
+      { "label": "そこそこ", "scores": { "stability": 1 } },
+      { "label": "平均以上だと思う", "scores": { "utility": 1, "strategic": 1 } },
+      { "label": "かなり自信がある", "scores": { "aggression": 1, "strategic": 2 } },
+      { "label": "テーブルでは常にトップクラス", "scores": { "aggression": 2, "utility": 2 } }
+    ]
+  },
+  {
+    "id": "q019",
+    "text": "リバーで相手がオーバーベット。あなたはミドルペア持ち。",
+    "type": "quad",
+    "options": [
+      { "label": "ブラフキャッチでコール", "scores": { "romance": 2, "aggression": 1, "creative": 1 } },
+      { "label": "きっぱりフォールド", "scores": { "stability": 3, "utility": 1 } },
+      { "label": "リレイズでブラフ返し", "scores": { "aggression": 3, "creative": 2, "meme": 1 } },
+      { "label": "相手のレンジを考えて判断", "scores": { "strategic": 3, "utility": 1 } }
+    ]
+  },
+  {
+    "id": "q020",
+    "text": "ポーカー以外の趣味で近いものは？",
+    "type": "quad",
+    "options": [
+      { "label": "投資・株・FX", "scores": { "utility": 3, "strategic": 1 } },
+      { "label": "ゲーム・eスポーツ", "scores": { "creative": 2, "strategic": 1, "meme": 1 } },
+      { "label": "ギャンブル全般", "scores": { "romance": 2, "aggression": 1, "meme": 1 } },
+      { "label": "チェス・将棋・囲碁", "scores": { "strategic": 3, "stability": 1 } }
+    ]
+  },
+  {
+    "id": "q021",
+    "text": "CBet（コンティニュエーションベット）の頻度は？",
+    "type": "scale",
+    "options": [
+      { "label": "ほとんどしない", "scores": { "stability": 2 } },
+      { "label": "ヒットしたときだけ", "scores": { "stability": 1, "utility": 1 } },
+      { "label": "ボード次第で使い分け", "scores": { "strategic": 3 } },
+      { "label": "かなり高頻度", "scores": { "aggression": 2, "strategic": 1 } },
+      { "label": "ほぼ毎回打つ", "scores": { "aggression": 3, "creative": 1 } }
+    ]
+  },
+  {
+    "id": "q022",
+    "text": "ポーカーで大事にしている格言は？",
+    "type": "quad",
+    "options": [
+      { "label": "「タイト・イズ・ライト」", "scores": { "stability": 3, "utility": 1 } },
+      { "label": "「ノーリスク・ノーリターン」", "scores": { "aggression": 2, "romance": 2 } },
+      { "label": "「相手をプレイしろ、カードをプレイするな」", "scores": { "creative": 2, "strategic": 2 } },
+      { "label": "「楽しんだもの勝ち」", "scores": { "meme": 3, "romance": 1 } }
+    ]
+  },
+  {
+    "id": "q023",
+    "text": "バブル（入賞圏直前）での戦略は？",
+    "type": "quad",
+    "options": [
+      { "label": "サバイブ優先でタイトに", "scores": { "stability": 3, "utility": 1 } },
+      { "label": "バブルファクターを利用してアグレッシブに", "scores": { "aggression": 2, "strategic": 2 } },
+      { "label": "ICMを計算して最適なプレイを", "scores": { "strategic": 3, "utility": 1 } },
+      { "label": "バブルとか気にしない。チップリーダー目指す", "scores": { "romance": 2, "aggression": 2 } }
+    ]
+  },
+  {
+    "id": "q024",
+    "text": "ショートスタックになったらどうする？",
+    "type": "quad",
+    "options": [
+      { "label": "プッシュ・フォールド戦略に切り替え", "scores": { "strategic": 3, "utility": 1 } },
+      { "label": "ダブルアップを狙ってオールイン", "scores": { "aggression": 2, "romance": 2 } },
+      { "label": "耐えてチャンスを待つ", "scores": { "stability": 3 } },
+      { "label": "ショートスタックでも普通にプレイ", "scores": { "creative": 1, "meme": 2 } }
+    ]
+  },
+  {
+    "id": "q025",
+    "text": "新しいポーカーの戦術やトレンドへの興味は？",
+    "type": "scale",
+    "options": [
+      { "label": "興味なし。自分のスタイルを貫く", "scores": { "stability": 2, "romance": 1 } },
+      { "label": "たまに気になる", "scores": { "creative": 1 } },
+      { "label": "積極的に取り入れる", "scores": { "strategic": 2, "creative": 1 } },
+      { "label": "最新戦術を常にチェック", "scores": { "strategic": 3, "utility": 1 } },
+      { "label": "自分で新しい戦術を考えるのが好き", "scores": { "creative": 3, "romance": 1 } }
+    ]
+  },
+  {
+    "id": "q026",
+    "text": "テーブルイメージを意識してプレイする？",
+    "type": "binary",
+    "options": [
+      { "label": "意識する。イメージを利用してプレイを変える", "scores": { "creative": 2, "strategic": 2 } },
+      { "label": "あまり意識しない。自分のカードに集中", "scores": { "stability": 2, "utility": 1 } }
+    ]
+  },
+  {
+    "id": "q027",
+    "text": "理想のポーカーの勝ち方は？",
+    "type": "quad",
+    "options": [
+      { "label": "コツコツとスモールポットを積み上げる", "scores": { "utility": 3, "stability": 1 } },
+      { "label": "ビッグブラフで大きなポットを獲る", "scores": { "romance": 3, "aggression": 2 } },
+      { "label": "数学的に正しいプレイで期待値を最大化", "scores": { "strategic": 3, "utility": 1 } },
+      { "label": "相手の魂を読んで勝つ", "scores": { "creative": 2, "romance": 1, "meme": 1 } }
+    ]
+  },
+  {
+    "id": "q028",
+    "text": "ポーカーの配信や動画で好きなタイプは？",
+    "type": "quad",
+    "options": [
+      { "label": "ハイステークスの緊張感ある対決", "scores": { "romance": 2, "aggression": 1, "utility": 1 } },
+      { "label": "教育系・戦略解説コンテンツ", "scores": { "strategic": 3, "utility": 1 } },
+      { "label": "面白いハンドやクレイジーなプレイ集", "scores": { "meme": 3, "creative": 1 } },
+      { "label": "あまり見ない", "scores": { "stability": 1 } }
+    ]
+  },
+  {
+    "id": "q029",
+    "text": "バンクロール管理をしている？",
+    "type": "scale",
+    "options": [
+      { "label": "全くしていない", "scores": { "meme": 2, "romance": 1 } },
+      { "label": "なんとなく意識する程度", "scores": { "romance": 1 } },
+      { "label": "ある程度ルールを決めている", "scores": { "utility": 1, "stability": 1 } },
+      { "label": "厳格にルールを守っている", "scores": { "utility": 2, "stability": 2 } },
+      { "label": "資金管理こそがポーカーの本質", "scores": { "utility": 3, "stability": 2 } }
+    ]
+  },
+  {
+    "id": "q030",
+    "text": "最後に。あなたにとってポーカーとは？",
+    "type": "quad",
+    "options": [
+      { "label": "人生そのもの", "scores": { "romance": 3, "aggression": 1 } },
+      { "label": "最高の知的ゲーム", "scores": { "strategic": 3, "creative": 1 } },
+      { "label": "収入源・ビジネス", "scores": { "utility": 4 } },
+      { "label": "最高のエンターテイメント", "scores": { "meme": 2, "romance": 1, "creative": 1 } }
+    ]
+  }
+]
