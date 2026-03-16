@@ -2,6 +2,8 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { motion } from 'framer-motion'
+import InkSplats from '@/components/InkSplats'
 
 export default function EntryPage() {
   const router = useRouter()
@@ -32,96 +34,89 @@ export default function EntryPage() {
   }
 
   const inputClass =
-    'w-full bg-card-bg border border-card-border rounded-lg px-4 py-3 text-ivory font-body focus:outline-none focus:border-gold transition-colors'
+    'w-full bg-ink-card border-2 border-ink-border rounded-xl px-4 py-3 text-ink-text font-body focus:outline-none focus:border-ink-blue focus:shadow-[0_0_15px_rgba(0,212,255,0.3)] transition-all duration-200 placeholder:text-ink-muted'
 
   return (
-    <main className="min-h-screen bg-deep flex items-center justify-center px-4 py-12">
-      <div className="w-full max-w-md">
-        <h1 className="font-display text-3xl font-bold text-ivory text-center mb-2">
+    <main className="min-h-screen bg-ink-dark flex items-center justify-center px-4 py-12 ink-dots relative overflow-hidden">
+      <InkSplats />
+
+      <motion.div
+        className="w-full max-w-md relative z-10"
+        initial={{ y: 40, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+      >
+        <h1 className="font-display text-4xl font-black text-center mb-2"
+            style={{ textShadow: '3px 3px 0 #FF2E8B' }}>
           Player Info
         </h1>
-        <p className="text-muted text-center mb-8 font-body">
-          あなたについて教えてください
+        <p className="text-ink-blue text-center mb-8 font-display font-bold text-lg">
+          あなたについて教えて！
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-5">
-          <div>
-            <label className="block text-muted text-sm mb-1.5 font-body">名前</label>
-            <input
-              type="text"
-              value={form.name}
-              onChange={(e) => setForm({ ...form, name: e.target.value })}
-              className={inputClass}
-              placeholder="山田太郎"
-            />
-          </div>
+          {[
+            { label: '名前', key: 'name', type: 'text', placeholder: '山田太郎' },
+            { label: 'メールアドレス', key: 'email', type: 'email', placeholder: 'you@example.com' },
+            { label: 'ポーカーネーム', key: 'pokerName', type: 'text', placeholder: 'Your poker name' },
+            { label: 'よく行く店舗', key: 'store', type: 'text', placeholder: '店舗名' },
+          ].map((field, i) => (
+            <motion.div
+              key={field.key}
+              initial={{ x: -30, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.1 + i * 0.1 }}
+            >
+              <label className="block text-ink-lime text-sm mb-1.5 font-display font-bold">{field.label}</label>
+              <input
+                type={field.type}
+                value={form[field.key as keyof typeof form]}
+                onChange={(e) => setForm({ ...form, [field.key]: e.target.value })}
+                className={inputClass}
+                placeholder={field.placeholder}
+              />
+            </motion.div>
+          ))}
 
-          <div>
-            <label className="block text-muted text-sm mb-1.5 font-body">メールアドレス</label>
-            <input
-              type="email"
-              value={form.email}
-              onChange={(e) => setForm({ ...form, email: e.target.value })}
-              className={inputClass}
-              placeholder="you@example.com"
-            />
-          </div>
-
-          <div>
-            <label className="block text-muted text-sm mb-1.5 font-body">ポーカーネーム</label>
-            <input
-              type="text"
-              value={form.pokerName}
-              onChange={(e) => setForm({ ...form, pokerName: e.target.value })}
-              className={inputClass}
-              placeholder="Your poker name"
-            />
-          </div>
-
-          <div>
-            <label className="block text-muted text-sm mb-1.5 font-body">よく行く店舗</label>
-            <input
-              type="text"
-              value={form.store}
-              onChange={(e) => setForm({ ...form, store: e.target.value })}
-              className={inputClass}
-              placeholder="店舗名"
-            />
-          </div>
-
-          <div>
-            <label className="block text-muted text-sm mb-1.5 font-body">ポーカー歴</label>
+          <motion.div
+            initial={{ x: -30, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ delay: 0.5 }}
+          >
+            <label className="block text-ink-lime text-sm mb-1.5 font-display font-bold">ポーカー歴</label>
             <div className="grid grid-cols-2 gap-2">
               {experienceOptions.map((opt) => (
                 <button
                   key={opt}
                   type="button"
                   onClick={() => setForm({ ...form, experience: opt })}
-                  className={`px-4 py-2.5 rounded-lg border font-body text-sm transition-all ${
+                  className={`px-4 py-2.5 rounded-xl border-2 font-display font-bold text-sm transition-all duration-200 hover-shake ${
                     form.experience === opt
-                      ? 'border-gold bg-gold/10 text-gold'
-                      : 'border-card-border bg-card-bg text-muted hover:border-muted'
+                      ? 'border-ink-blue bg-ink-blue/20 text-ink-blue shadow-[0_0_15px_rgba(0,212,255,0.3)]'
+                      : 'border-ink-border bg-ink-card text-ink-muted hover:border-ink-muted'
                   }`}
                 >
                   {opt}
                 </button>
               ))}
             </div>
-          </div>
+          </motion.div>
 
-          <button
+          <motion.button
             type="submit"
             disabled={!isValid}
-            className={`w-full py-4 rounded-lg font-body font-bold text-lg transition-all mt-4 ${
+            whileHover={isValid ? { scale: 1.03 } : {}}
+            whileTap={isValid ? { scale: 0.97 } : {}}
+            className={`w-full py-4 rounded-xl font-display font-black text-lg transition-all mt-4 border-b-4 ${
               isValid
-                ? 'bg-gold text-deep hover:bg-gold-dim'
-                : 'bg-card-bg text-muted cursor-not-allowed'
+                ? 'bg-ink-magenta text-white border-ink-magenta/60 hover:brightness-110 shadow-lg shadow-ink-magenta/30'
+                : 'bg-ink-card text-ink-muted border-ink-card cursor-not-allowed'
             }`}
           >
-            診断に進む
-          </button>
+            診断に進む →
+          </motion.button>
         </form>
-      </div>
+      </motion.div>
     </main>
   )
 }

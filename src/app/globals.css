@@ -2,32 +2,113 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Noto+Serif+JP:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap');
 
 :root {
-  --bg-deep: #0a0a0a;
-  --bg-felt: #0f1a0f;
-  --accent: #c8a96e;
-  --accent-dim: #8a6f3e;
-  --text-primary: #f0ead8;
-  --text-secondary: #7a7060;
-  --card-bg: #1a1a1a;
-  --card-border: #2a2520;
-  --danger: #8b1a1a;
+  --ink-bg: #1a1a2e;
+  --ink-dark: #0f0f23;
+  --ink-blue: #00D4FF;
+  --ink-magenta: #FF2E8B;
+  --ink-lime: #BFFF00;
+  --ink-yellow: #FFE135;
+  --ink-orange: #FF6B35;
 }
 
 body {
-  color: var(--text-primary);
-  background: var(--bg-deep);
-  font-family: 'Noto Serif JP', serif;
+  color: #f0f0ff;
+  background: var(--ink-dark);
+  font-family: 'Zen Maru Gothic', sans-serif;
+  overflow-x: hidden;
 }
 
-@keyframes cardReveal {
-  from { opacity: 0; transform: rotateY(90deg) translateY(20px); }
-  to   { opacity: 1; transform: rotateY(0deg) translateY(0); }
+/* Ink splat background pattern */
+.ink-dots {
+  background-image: radial-gradient(circle, rgba(0,212,255,0.08) 1px, transparent 1px),
+                     radial-gradient(circle, rgba(255,46,139,0.06) 1px, transparent 1px);
+  background-size: 24px 24px, 36px 36px;
+  background-position: 0 0, 12px 12px;
 }
 
-@keyframes questionIn {
-  from { opacity: 0; transform: translateY(12px); }
-  to   { opacity: 1; transform: translateY(0); }
+/* Splat decorations */
+.splat-blob {
+  position: absolute;
+  border-radius: 50% 40% 60% 50% / 50% 60% 40% 50%;
+  filter: blur(1px);
+  pointer-events: none;
+}
+
+/* Ink fill animation for gauges */
+@keyframes ink-fill {
+  from { width: 0%; }
+  to { width: var(--fill-width); }
+}
+
+.ink-gauge {
+  animation: ink-fill 1s cubic-bezier(0.68,-0.55,0.265,1.55) forwards;
+}
+
+/* Button hover shake */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
+  20%, 40%, 60%, 80% { transform: translateX(2px); }
+}
+
+.hover-shake:hover {
+  animation: shake 0.4s ease-in-out;
+}
+
+/* Ink splash on click */
+@keyframes ink-splash {
+  0% { transform: scale(0); opacity: 1; }
+  100% { transform: scale(3); opacity: 0; }
+}
+
+.ink-splash-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.ink-splash-effect::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, var(--splash-color, #00D4FF) 0%, transparent 70%);
+  transform: scale(0);
+  opacity: 0;
+  border-radius: inherit;
+}
+
+.ink-splash-effect:active::after {
+  animation: ink-splash 0.5s ease-out;
+}
+
+/* Skew section */
+.skew-section {
+  transform: rotate(-1deg);
+}
+
+.skew-section > * {
+  transform: rotate(1deg);
+}
+
+/* Card wobble on selected */
+@keyframes card-wobble {
+  0% { transform: translateY(0) rotate(0); }
+  25% { transform: translateY(-6px) rotate(1deg); }
+  50% { transform: translateY(-3px) rotate(-0.5deg); }
+  75% { transform: translateY(-5px) rotate(0.5deg); }
+  100% { transform: translateY(-4px) rotate(0); }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0f0f23;
+}
+::-webkit-scrollbar-thumb {
+  background: #3a3a5a;
+  border-radius: 3px;
 }
