@@ -23,9 +23,9 @@ export interface Hand {
 }
 
 export interface PlayerInfo {
-  name: string
-  email: string
   pokerName: string
+  email: string
   store: string
+  prefecture: string
   experience: string
 }
