@@ -19,8 +19,9 @@ export default function QuizPage() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [answers, setAnswers] = useState<Record<string, number>>({})
   const [animating, setAnimating] = useState(false)
-  const [selectedIdx, setSelectedIdx] = useState<number | null>(null)
+  const [highlightIdx, setHighlightIdx] = useState<number | null>(null)
   const [splatPosition, setSplatPosition] = useState<{ x: number; y: number } | null>(null)
+  const [direction, setDirection] = useState(1) // 1=forward, -1=back
 
   useEffect(() => {
     const playerInfo = sessionStorage.getItem('playerInfo')
@@ -33,30 +34,53 @@ export default function QuizPage() {
   const total = questions.length
   const accentColor = splatColors[currentIndex % splatColors.length]
 
-  const handleSelect = (optionIndex: number, e: React.MouseEvent) => {
+  // 質問が変わったら、既存回答があればそれをハイライト、なければnull
+  useEffect(() => {
+    if (question) {
+      const existing = answers[question.id]
+      setHighlightIdx(existing !== undefined ? existing : null)
+    }
+  }, [currentIndex, question, answers])
+
+  const handleTap = (optionIndex: number, e: React.MouseEvent) => {
     if (animating) return
-    setAnimating(true)
-    setSelectedIdx(optionIndex)
 
-    const rect = (e.target as HTMLElement).getBoundingClientRect()
-    setSplatPosition({ x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 })
+    if (highlightIdx === optionIndex) {
+      // 2回目のタップ → 確定して次へ
+      setAnimating(true)
 
-    const newAnswers = { ...answers, [question.id]: optionIndex }
-    setAnswers(newAnswers)
+      const rect = (e.target as HTMLElement).getBoundingClientRect()
+      setSplatPosition({ x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 })
 
-    setTimeout(() => {
-      if (currentIndex < total - 1) {
-        setCurrentIndex(currentIndex + 1)
-        setSelectedIdx(null)
-        setSplatPosition(null)
-        setAnimating(false)
-      } else {
-        const scores = calcScores(questions, newAnswers)
-        const hand = matchHand(scores, hands)
-        sessionStorage.setItem('quizResult', JSON.stringify({ scores, handId: hand.id }))
-        router.push(`/result/${hand.id}`)
-      }
-    }, 500)
+      const newAnswers = { ...answers, [question.id]: optionIndex }
+      setAnswers(newAnswers)
+
+      setTimeout(() => {
+        if (currentIndex < total - 1) {
+          setDirection(1)
+          setCurrentIndex(currentIndex + 1)
+          setHighlightIdx(null)
+          setSplatPosition(null)
+          setAnimating(false)
+        } else {
+          const scores = calcScores(questions, newAnswers)
+          const hand = matchHand(scores, hands)
+          sessionStorage.setItem('quizResult', JSON.stringify({ scores, handId: hand.id }))
+          router.push(`/result/${hand.id}`)
+        }
+      }, 400)
+    } else {
+      // 1回目のタップ → ハイライトのみ
+      setHighlightIdx(optionIndex)
+    }
+  }
+
+  const handleBack = () => {
+    if (currentIndex > 0 && !animating) {
+      setDirection(-1)
+      setCurrentIndex(currentIndex - 1)
+      setHighlightIdx(null)
+    }
   }
 
   if (!question) return null
@@ -64,10 +88,10 @@ export default function QuizPage() {
   const progressPercent = ((currentIndex + 1) / total) * 100
 
   return (
-    <main className="min-h-screen bg-ink-dark flex flex-col items-center justify-center px-4 relative overflow-hidden ink-dots">
+    <main className="min-h-screen bg-ink-dark flex flex-col items-center justify-center px-4 py-16 relative overflow-hidden ink-dots">
       <InkSplats />
 
-      {/* Ink splash effect on select */}
+      {/* Ink splash effect on confirm */}
       <AnimatePresence>
         {splatPosition && (
           <motion.div
@@ -89,72 +113,101 @@ export default function QuizPage() {
         )}
       </AnimatePresence>
 
-      {/* Question counter */}
-      <motion.div
-        className="absolute top-6 left-1/2 -translate-x-1/2 z-10"
-        initial={{ y: -20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-      >
-        <span className="font-mono text-2xl font-bold" style={{ color: accentColor }}>
-          {currentIndex + 1}
-        </span>
-        <span className="font-mono text-lg text-ink-muted"> / {total}</span>
-      </motion.div>
+      {/* Header: Back button + Question counter */}
+      <div className="absolute top-0 left-0 right-0 flex items-center justify-center px-4 pt-5 pb-3 z-10">
+        <div className="absolute left-4">
+          {currentIndex > 0 && (
+            <motion.button
+              onClick={handleBack}
+              className="flex items-center gap-1 text-ink-muted hover:text-ink-text transition-colors px-3 py-2 rounded-lg"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+              <span className="text-sm font-body">戻る</span>
+            </motion.button>
+          )}
+        </div>
+        <div className="text-center">
+          <span className="font-mono text-2xl font-bold" style={{ color: accentColor }}>
+            {currentIndex + 1}
+          </span>
+          <span className="font-mono text-lg text-ink-muted"> / {total}</span>
+        </div>
+      </div>
 
       {/* Question */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={question.id}
-          className="w-full max-w-lg relative z-10"
-          initial={{ x: 100, opacity: 0, rotate: 3 }}
-          animate={{ x: 0, opacity: 1, rotate: 0 }}
-          exit={{ x: -100, opacity: 0, rotate: -3 }}
-          transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-        >
-          <h2 className="font-display text-xl md:text-2xl text-ink-text text-center mb-10 leading-relaxed font-bold">
+      <motion.div
+        key={question.id}
+        className="w-full max-w-lg relative z-10"
+        initial={{ x: direction * 60, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ type: 'spring', stiffness: 300, damping: 28 }}
+      >
+          <h2 className="font-display text-lg sm:text-xl md:text-2xl text-ink-text text-center mb-8 sm:mb-10 leading-relaxed font-bold px-2">
             {question.text}
           </h2>
 
           <div className="space-y-3">
-            {question.options.map((option, idx) => (
-              <motion.button
-                key={idx}
-                onClick={(e) => handleSelect(idx, e)}
-                disabled={animating}
-                initial={{ x: -40, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: idx * 0.1, type: 'spring', stiffness: 300, damping: 25 }}
-                whileHover={{ scale: 1.02, x: 8 }}
-                whileTap={{ scale: 0.98 }}
-                className={`w-full text-left px-6 py-4 rounded-xl border-2 font-display font-bold
-                           transition-all duration-200 ink-splash-effect
-                           ${selectedIdx === idx
-                    ? 'border-current bg-current/20 scale-[1.02]'
-                    : 'border-ink-border bg-ink-card text-ink-text hover:border-ink-blue/50'
-                  } disabled:cursor-default`}
-                style={{
-                  ...(selectedIdx === idx ? { borderColor: accentColor, color: accentColor, backgroundColor: `${accentColor}20` } : {}),
-                  '--splash-color': accentColor,
-                } as React.CSSProperties}
-              >
-                <span className="flex items-center gap-3">
-                  <span
-                    className="w-8 h-8 rounded-full border-2 flex items-center justify-center text-sm font-mono shrink-0"
-                    style={{ borderColor: selectedIdx === idx ? accentColor : '#3a3a5a' }}
-                  >
-                    {String.fromCharCode(65 + idx)}
+            {question.options.map((option, idx) => {
+              const isHighlighted = highlightIdx === idx
+              return (
+                <motion.button
+                  key={idx}
+                  onClick={(e) => handleTap(idx, e)}
+                  disabled={animating}
+                  initial={{ y: 15, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: idx * 0.06, type: 'spring', stiffness: 400, damping: 30 }}
+                  whileTap={{ scale: 0.97 }}
+                  className={`w-full text-left px-4 sm:px-6 py-3.5 sm:py-4 rounded-xl border-2 font-display font-bold
+                             text-sm sm:text-base transition-all duration-200
+                             ${isHighlighted
+                      ? 'scale-[1.02] shadow-lg'
+                      : 'border-ink-border bg-ink-card text-ink-text hover:border-ink-blue/40'
+                    } disabled:cursor-default`}
+                  style={{
+                    ...(isHighlighted
+                      ? { borderColor: accentColor, color: accentColor, backgroundColor: `${accentColor}15`, boxShadow: `0 0 20px ${accentColor}20` }
+                      : {}),
+                  }}
+                >
+                  <span className="flex items-center gap-3">
+                    <span
+                      className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 flex items-center justify-center text-xs sm:text-sm font-mono shrink-0 transition-colors duration-200
+                        ${isHighlighted ? 'bg-current/20' : ''}`}
+                      style={{ borderColor: isHighlighted ? accentColor : '#3a3a5a' }}
+                    >
+                      {String.fromCharCode(65 + idx)}
+                    </span>
+                    <span className="leading-snug">{option.label}</span>
                   </span>
-                  {option.label}
-                </span>
-              </motion.button>
-            ))}
+                </motion.button>
+              )
+            })}
           </div>
-        </motion.div>
-      </AnimatePresence>
 
-      {/* Progress bar - ink splat style */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-full max-w-lg px-4 z-10">
-        <div className="w-full h-3 bg-ink-card rounded-full overflow-hidden border border-ink-border">
+          {/* Tap hint */}
+          <AnimatePresence>
+            {highlightIdx !== null && (
+              <motion.p
+                className="text-center mt-4 text-xs text-ink-muted font-body"
+                initial={{ opacity: 0, y: 5 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0 }}
+              >
+                もう一度タップで決定
+              </motion.p>
+            )}
+          </AnimatePresence>
+        </motion.div>
+
+      {/* Progress bar */}
+      <div className="absolute bottom-5 left-1/2 -translate-x-1/2 w-full max-w-lg px-4 z-10">
+        <div className="w-full h-2.5 bg-ink-card rounded-full overflow-hidden border border-ink-border">
           <motion.div
             className="h-full rounded-full"
             style={{ backgroundColor: accentColor }}
