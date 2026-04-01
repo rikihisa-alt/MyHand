@@ -73,13 +73,13 @@ export default function TopPage() {
 
       {/* Bottom ink drip decoration */}
       <div className="absolute bottom-0 left-0 right-0 flex justify-around">
-        {[...Array(8)].map((_, i) => (
+        {[14, 18, 12, 16, 13, 19, 15, 17].map((w, i) => (
           <div
             key={i}
             className="bg-ink-blue/20 rounded-t-full"
             style={{
-              width: `${12 + Math.random() * 8}%`,
-              height: `${20 + Math.random() * 30}px`,
+              width: `${w}%`,
+              height: `${25 + i * 4}px`,
             }}
           />
         ))}

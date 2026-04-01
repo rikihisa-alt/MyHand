@@ -1,7 +1,17 @@
 'use client'
 
+interface Splat {
+  color: string
+  size: number
+  opacity: number
+  top?: string
+  left?: string
+  right?: string
+  bottom?: string
+}
+
 export default function InkSplats() {
-  const splats = [
+  const splats: Splat[] = [
     { color: '#00D4FF', size: 180, top: '10%', left: '-5%', opacity: 0.15 },
     { color: '#FF2E8B', size: 140, top: '60%', right: '-3%', opacity: 0.12 },
     { color: '#BFFF00', size: 100, bottom: '15%', left: '10%', opacity: 0.1 },
@@ -23,8 +33,8 @@ export default function InkSplats() {
             opacity: s.opacity,
             top: s.top,
             left: s.left,
-            right: (s as Record<string, unknown>).right as string | undefined,
-            bottom: (s as Record<string, unknown>).bottom as string | undefined,
+            right: s.right,
+            bottom: s.bottom,
           }}
         />
       ))}
