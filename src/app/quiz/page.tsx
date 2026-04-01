@@ -190,19 +190,11 @@ export default function QuizPage() {
             })}
           </div>
 
-          {/* Tap hint */}
-          <AnimatePresence>
-            {highlightIdx !== null && (
-              <motion.p
-                className="text-center mt-4 text-xs text-ink-muted font-body"
-                initial={{ opacity: 0, y: 5 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0 }}
-              >
-                もう一度タップで決定
-              </motion.p>
-            )}
-          </AnimatePresence>
+          {/* Tap hint - fixed height to prevent layout shift */}
+          <p className={`text-center mt-4 text-xs font-body h-5 transition-opacity duration-200
+            ${highlightIdx !== null ? 'text-ink-muted opacity-100' : 'opacity-0'}`}>
+            もう一度タップで決定
+          </p>
         </motion.div>
 
       {/* Progress bar */}
