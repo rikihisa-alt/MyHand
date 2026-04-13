@@ -193,17 +193,19 @@ function parseNotation(notation: string) {
 function ScoreBar({ label, value, maxValue, color, delay }: {
   label: string; value: number; maxValue: number; color: string; delay: number
 }) {
-  const pct = Math.min(Math.max((value / maxValue) * 100, 5), 100)
+  // 100点満点に正規化（最低0、最高100）
+  const normalized = Math.round(Math.min(Math.max((value / maxValue) * 100, 0), 100))
+  const barWidth = Math.max(normalized, 3) // 最低3%の表示幅
   return (
-    <motion.div className="mb-2.5" initial={{ x: -20, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }}
+    <motion.div className="mb-3" initial={{ x: -20, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }}
       viewport={{ once: true }} transition={{ delay }}>
-      <div className="flex justify-between mb-1">
+      <div className="flex justify-between mb-1.5">
         <span className="text-sm text-ink-text/70 font-body">{label}</span>
-        <span className="font-mono text-xs text-ink-text/50">{value > 0 ? `+${value}` : value}</span>
+        <span className="font-mono text-sm font-bold" style={{ color }}>{normalized}</span>
       </div>
-      <div className="w-full h-2 bg-ink-card rounded-full overflow-hidden">
+      <div className="w-full h-2.5 bg-ink-card rounded-full overflow-hidden">
         <motion.div className="h-full rounded-full" style={{ backgroundColor: color }}
-          initial={{ width: 0 }} whileInView={{ width: `${pct}%` }}
+          initial={{ width: 0 }} whileInView={{ width: `${barWidth}%` }}
           viewport={{ once: true }} transition={{ duration: 0.8, delay: delay + 0.2, ease: 'easeOut' }} />
       </div>
     </motion.div>
