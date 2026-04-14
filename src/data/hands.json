@@ -20,13 +20,13 @@
     "demerit": "ここを意識すればさらにレベルアップできるポイントは「ボード進行への対応力」。オーバーペアに固執しすぎず、フラッシュ完成やストレート完成のボードでは柔軟に対応する意識を持とう。「最強のハンドで降りられる人」こそが、本当の王者だ。AAを降りた経験は、プレイヤーとしての成熟度を何よりも雄弁に語ってくれる。",
     "message": "AAを降りられる人間だけが、AAを持つ資格を手にする。静かな威厳で場を統べよ。",
     "thresholds": {
-      "romance": 1,
-      "utility": 6,
-      "aggression": -6,
-      "stability": 8,
-      "creative": -3,
-      "strategic": -2,
-      "meme": -1
+      "stability": 10,
+      "utility": -5,
+      "romance": -2,
+      "meme": -5,
+      "strategic": -5,
+      "aggression": -5,
+      "creative": -9
     }
   },
   {
@@ -50,13 +50,13 @@
     "demerit": "ここを意識するとさらに強くなれるのが「ヒットしなかったフロップでの判断力」。AKだからと自動コールするのではなく、ボードテクスチャと相手のアクションを見極める習慣を持つと、ポストフロップでの出血を着実に減らせる。「AKでフォールド」は弱さではなく、状況認識力の証。その判断ができた時、あなたは本物のエリートだ。",
     "message": "Big Slickは完成を約束しない。でもあなたは知っている——未完の手札にこそ、最高の景色が広がることを。",
     "thresholds": {
-      "romance": 2,
-      "utility": 0,
-      "aggression": 4,
-      "stability": -2,
-      "creative": -3,
       "strategic": 10,
-      "meme": -7
+      "aggression": 4,
+      "utility": 1,
+      "meme": -2,
+      "romance": -4,
+      "creative": -6,
+      "stability": -9
     }
   },
   {
@@ -80,13 +80,13 @@
     "demerit": "4betポットに巻き込まれた時の判断を意識すると、さらに上のレベルへ行ける。相手の4betレンジにはAK/QQ+が多いため、勇気あるフォールドができるようになると長期的な収支がグッと改善する。「自分のハンドの絶対的な強さ」ではなく「相手のレンジに対する自分の位置」で考える癖がつくと、AQoの扱いが格段にうまくなる。その視点の転換が、リアリストとしての完成形への一歩だ。",
     "message": "自分の立ち位置を正確に測れる目。それだけで、あなたは大半のプレイヤーの先を行っている。",
     "thresholds": {
-      "romance": 1,
-      "utility": 7,
-      "aggression": 3,
-      "stability": 7,
-      "creative": -6,
+      "romance": -2,
+      "utility": 8,
+      "aggression": 4,
+      "stability": 8,
+      "creative": -9,
       "strategic": 5,
-      "meme": 6
+      "meme": 7
     }
   },
   {
@@ -114,8 +114,8 @@
       "utility": -6,
       "aggression": -1,
       "stability": 7,
-      "creative": 0,
-      "strategic": 3,
+      "creative": -3,
+      "strategic": -1,
       "meme": -9
     }
   },
@@ -170,13 +170,13 @@
     "demerit": "オーバーカードが出やすいフロップでの判断力を磨くと、もっと強くなれる。99で難しいのはT以上のカードが出た時の対応だが、相手のベットサイズやタイミングから情報を読み取る訓練を重ねると、このハンドの扱いがどんどん正確になっていく。「フォールドすべき場面」と「戦うべき場面」の見極め精度が上がると、長期収支の安定感がさらに増す。守護者の盾をいつ構え、いつ下ろすか——その判断こそが成長のカギだ。",
     "message": "マラソンランナーのように、42.195kmを走り切る持久力。気づいた時には、あなたが最後に立っている。",
     "thresholds": {
-      "romance": -2,
-      "utility": 7,
-      "aggression": -3,
-      "stability": 7,
-      "creative": 5,
-      "strategic": 3,
-      "meme": -8
+      "utility": 8,
+      "strategic": -3,
+      "stability": -9,
+      "meme": -4,
+      "creative": -9,
+      "aggression": -9,
+      "romance": -3
     }
   },
   {
@@ -320,13 +320,13 @@
     "demerit": "マージナルなスポットが多いハンドだからこそ、明確なプランを持ってアクションする意識が成績を安定させる。「なんとなくコール」ではなく「このアウツがあるからコール」「このブロッカーがあるからブラフ」と言語化できるようになると、あなたの戦術眼はさらに研ぎ澄まされる。一つひとつの判断に根拠を持つ習慣が、暗殺者の精度を飛躍的に高めてくれる。",
     "message": "レーダーに映らない者が、最も致命的な一撃を放つ。あなたのT9sは沈黙の凶器だ。",
     "thresholds": {
-      "romance": -7,
-      "utility": 2,
+      "romance": -4,
+      "utility": 7,
       "aggression": 3,
-      "stability": -2,
-      "creative": -2,
+      "stability": -3,
+      "creative": -7,
       "strategic": 10,
-      "meme": 2
+      "meme": 4
     }
   },
   {
@@ -380,13 +380,13 @@
     "demerit": "78sの魅力を存分に活かすために、参戦するスポットの「質」を意識するとさらに伸びる。条件が揃った場面に絞ることで、ロマンと収支を両立できるようになる。「いつでもどこでも78s」ではなく「最高の舞台でこそ78s」という意識が、あなたのポーカーに一段上の奥行きを与える。ドラマは最高の舞台でこそ最も美しく輝く——スポット選定こそがロマンの質を決める。",
     "message": "78sで仕掛けた夜のことを、テーブルの全員が覚えている。そのプレイは伝説として語り継がれる。",
     "thresholds": {
-      "romance": 7,
-      "utility": 4,
-      "aggression": 5,
-      "stability": 4,
-      "creative": 2,
-      "strategic": 3,
-      "meme": -9
+      "romance": 8,
+      "creative": 5,
+      "aggression": 3,
+      "meme": -2,
+      "strategic": -4,
+      "utility": -7,
+      "stability": -9
     }
   },
   {
@@ -410,13 +410,13 @@
     "demerit": "参戦スポットの選定を磨くと、下克上の成功率がもっと上がる。「ここだ」という場面を厳選できるようになると、チャレンジ精神と収支の両立が実現する。すべてのポットで戦う必要はない——本当に条件が揃った場面でのみ67sを解き放つ覚悟が、下克上の精度を飛躍的に高める。「挑戦する勇気」と「見送る知恵」のバランスこそが、真のアンダードッグを最強にする。",
     "message": "AAを沈めた67sの快感は生涯忘れられない。弱さから始まる逆転劇の主人公だ。",
     "thresholds": {
-      "romance": -2,
-      "utility": -1,
+      "romance": 9,
       "aggression": 5,
-      "stability": 3,
-      "creative": -3,
-      "strategic": -7,
-      "meme": 10
+      "meme": 2,
+      "creative": -2,
+      "strategic": -4,
+      "stability": -7,
+      "utility": -8
     }
   },
   {
@@ -470,13 +470,13 @@
     "demerit": "キッカー問題を意識するともっと強くなれる。Aがヒットしてもキッカーが4の場合、トップペアだけで大きなポットを作らない判断力が身につくと収支がさらに安定する。「勝っている時に大きく、負けている時に小さく」——このシンプルだが奥深い原則を徹底できるようになると、サイレントキラーの称号がさらに輝く。静かな者が最も賢くベットサイズを操れた時、テーブルは気づかぬうちに支配されている。",
     "message": "言葉少なに、利益だけを静かに重ねる。A4sのように寡黙な実力が何より雄弁だ。",
     "thresholds": {
-      "romance": -3,
-      "utility": 9,
-      "aggression": 2,
+      "utility": 8,
+      "meme": 5,
       "stability": -3,
-      "creative": 1,
-      "strategic": 3,
-      "meme": 1
+      "creative": -4,
+      "strategic": -5,
+      "romance": -6,
+      "aggression": -8
     }
   },
   {
@@ -500,7 +500,7 @@
     "demerit": "「何がしたいのか」を明確にしてからアクションする習慣をつけると、もっと安定した成績に繋がる。柔軟性は最大の武器だが、プランのない柔軟性は単なる迷いになりかねない。プランを持った上での柔軟性が身につくと、K9sの強みがさらに活きてくる。「この手でこの状況なら、自分は何を目指すのか」と毎回言語化してからアクションする——それが真のアダプターの姿だ。",
     "message": "水のように、どんな器にも形を変えて馴染む。K9sを使いこなすあなたの適応力は天性のものだ。",
     "thresholds": {
-      "romance": -5,
+      "romance": -3,
       "utility": 4,
       "aggression": -8,
       "stability": 7,
@@ -532,7 +532,7 @@
     "thresholds": {
       "romance": 7,
       "utility": 5,
-      "aggression": -6,
+      "aggression": -4,
       "stability": 5,
       "creative": 4,
       "strategic": 5,
@@ -560,12 +560,12 @@
     "demerit": "フロップを見て切り替える判断力を磨くと、さらに上のレベルへ行ける。セットが来なかった時にサッと見切れるようになると、忍耐の精度がもっと高まり、長期的な収支がさらに安定する。忍耐とは「ただ待つこと」ではなく「待つべき時を知り、動くべき時を知ること」。その見極めが身につくと、あなたの忍耐は鋭い刃のような武器になる。「見切る速さ」こそが、忍耐のマスターへの最終試験だ。",
     "message": "最小のペアで最大の利益を掘り当てる。22のセットは、忍耐が生んだ黄金だ。",
     "thresholds": {
-      "romance": -8,
-      "utility": 4,
-      "aggression": 3,
-      "stability": 9,
-      "creative": -5,
-      "strategic": 0,
+      "romance": -9,
+      "utility": -2,
+      "aggression": 4,
+      "stability": 10,
+      "creative": -6,
+      "strategic": -7,
       "meme": -7
     }
   },
@@ -710,13 +710,13 @@
     "demerit": "キッカー負けする場面での損失を抑える意識を持つと、さらに収支が安定する。AT vs AK/AQの構図を冷静に判断できるようになることが次のステップだ。",
     "message": "ナッツフラッシュとブロードウェイの両方を追える贅沢。ATsの二刀流はあなたの引き出しの多さだ。",
     "thresholds": {
-      "romance": 0,
-      "utility": 6,
-      "aggression": 0,
-      "stability": -3,
-      "creative": 8,
-      "strategic": 7,
-      "meme": -3
+      "romance": -3,
+      "utility": 2,
+      "aggression": -7,
+      "stability": -9,
+      "creative": 10,
+      "strategic": 5,
+      "meme": -5
     }
   },
   {
@@ -740,13 +740,13 @@
     "demerit": "Aヒット時のキッカー勝負で不利になりやすい点を意識しよう。「Aが出た=強い」ではなく、相手のレンジとキッカーの関係性を冷静に評価する癖をつけると、不要な損失を防げる。",
     "message": "控えめな顔をして最強のフラッシュを仕上げる。A9sの隠し球は、あなただけの切り札だ。",
     "thresholds": {
-      "romance": 7,
-      "utility": 7,
-      "aggression": 4,
-      "stability": 0,
-      "creative": 0,
-      "strategic": -6,
-      "meme": 0
+      "romance": 6,
+      "utility": 5,
+      "stability": 2,
+      "meme": -1,
+      "creative": -3,
+      "strategic": -5,
+      "aggression": -7
     }
   },
   {
@@ -770,12 +770,12 @@
     "demerit": "フラッシュドロー以外の局面で過度に粘らない意識を持つと、収支の漏れが減る。A8sの利益の多くはフラッシュ完成時に集中するため、それ以外では撤退の見極めが重要だ。",
     "message": "カウンターアタックの名手。堅い守備から繰り出すA8sの速攻は、防ぎようがない。",
     "thresholds": {
-      "romance": -7,
-      "utility": -7,
+      "romance": -3,
+      "utility": -3,
       "aggression": 3,
       "stability": 8,
       "creative": 1,
-      "strategic": -5,
+      "strategic": -3,
       "meme": 1
     }
   },
@@ -803,10 +803,10 @@
       "romance": -2,
       "utility": 5,
       "aggression": 6,
-      "stability": -6,
+      "stability": -7,
       "creative": 7,
       "strategic": -7,
-      "meme": 1
+      "meme": 2
     }
   },
   {
@@ -863,7 +863,7 @@
       "romance": 9,
       "utility": 5,
       "aggression": -3,
-      "stability": 4,
+      "stability": 5,
       "creative": -5,
       "strategic": -4,
       "meme": 6
@@ -890,13 +890,13 @@
     "demerit": "ナッツ以外の完成形（弱いペアやAハイ）で過度に粘らない意識が重要。A2sの利益はナッツフラッシュとホイールに集中するため、それ以外の局面での撤退判断を磨こう。",
     "message": "AceとDeuce、始まりと頂点が手の中で共存する。原点を忘れない者だけが高みに立てる。",
     "thresholds": {
-      "romance": 5,
-      "utility": -8,
-      "aggression": 1,
-      "stability": -6,
-      "creative": 1,
-      "strategic": 2,
-      "meme": 8
+      "meme": 10,
+      "creative": 4,
+      "romance": 1,
+      "strategic": -2,
+      "aggression": -4,
+      "utility": -6,
+      "stability": -9
     }
   },
   {
@@ -920,13 +920,13 @@
     "demerit": "AKやKQとぶつかった時のドミネート関係を常に意識しよう。K系ハンド同士の戦いではキッカーが命取りになるため、相手のアクションからレンジを正確に読む力が求められる。",
     "message": "副社長タイプの実力派。KJsを手に、華を添えながらも確実に勝利を拾い続けている。",
     "thresholds": {
-      "romance": 10,
+      "romance": 9,
+      "meme": 6,
+      "aggression": 1,
+      "creative": -2,
       "utility": -4,
-      "aggression": 7,
-      "stability": -4,
-      "creative": 2,
-      "strategic": -8,
-      "meme": 5
+      "strategic": -6,
+      "stability": -9
     }
   },
   {
@@ -950,13 +950,13 @@
     "demerit": "テクニックに自信があるぶん、やや複雑なラインに走りがちな点を意識しよう。シンプルなプレイが最善の場面では、あえてシンプルに打つ判断力も「技術」の一部だ。",
     "message": "力押しではなく、100の引き出しで翻弄する。KTsを操る技巧派の背中は、誰より頼もしい。",
     "thresholds": {
-      "romance": -3,
-      "utility": -9,
-      "aggression": -4,
-      "stability": -8,
-      "creative": 3,
       "strategic": 10,
-      "meme": -4
+      "creative": -6,
+      "utility": -9,
+      "meme": -2,
+      "romance": -9,
+      "aggression": 0,
+      "stability": -6
     }
   },
   {
@@ -1043,8 +1043,8 @@
       "romance": -7,
       "utility": -6,
       "aggression": 8,
-      "stability": -7,
-      "creative": -2,
+      "stability": -9,
+      "creative": -4,
       "strategic": -4,
       "meme": 3
     }
@@ -1100,11 +1100,11 @@
     "demerit": "ギャップコネクターの「ギャップ」部分を過大評価しないよう意識しよう。ストレートの完成確率はコネクテッドハンドよりやや低いため、ドローのアウツ計算を正確に行う習慣が大切だ。",
     "message": "隙間を埋める発想力。J9sのギャップを武器に変えたあなたは、橋を架ける天才だ。",
     "thresholds": {
-      "romance": 5,
+      "romance": 6,
       "utility": 1,
       "aggression": 0,
       "stability": 1,
-      "creative": 9,
+      "creative": 10,
       "strategic": -5,
       "meme": 1
     }
@@ -1130,12 +1130,12 @@
     "demerit": "トリッキーさが目的化しないよう注意しよう。あくまで期待値がプラスになる場面でのみトリッキーなプレイを選ぶ——その基準を持つことが、ジョーカーの真の力を引き出す。",
     "message": "定石を破る者だけが、新しい定石を作れる。J8sのトリックで、独創性を証明しろ。",
     "thresholds": {
-      "romance": -9,
+      "romance": -7,
       "utility": -1,
       "aggression": 1,
       "stability": 1,
       "creative": 3,
-      "strategic": 0,
+      "strategic": 3,
       "meme": 8
     }
   },
@@ -1161,11 +1161,11 @@
     "message": "上にも下にも気を配れるT8sの中間力。組織でもテーブルでも、あなたなしでは回らない。",
     "thresholds": {
       "romance": -8,
-      "utility": -2,
-      "aggression": -2,
+      "utility": -4,
+      "aggression": -4,
       "stability": 10,
-      "creative": -3,
-      "strategic": 7,
+      "creative": -5,
+      "strategic": 3,
       "meme": 4
     }
   },
@@ -1252,7 +1252,7 @@
     "thresholds": {
       "romance": 2,
       "utility": -5,
-      "aggression": 5,
+      "aggression": 2,
       "stability": 5,
       "creative": 4,
       "strategic": 7,
@@ -1281,11 +1281,11 @@
     "message": "既存のカテゴリーに収まらない95s。読めないあなたに、対戦相手は手を焼き続ける。",
     "thresholds": {
       "romance": -1,
-      "utility": -2,
+      "utility": 0,
       "aggression": 7,
-      "stability": 1,
-      "creative": -7,
-      "strategic": 5,
+      "stability": -1,
+      "creative": -3,
+      "strategic": 3,
       "meme": 8
     }
   },
@@ -1400,13 +1400,13 @@
     "demerit": "ストレート完成時に上のストレートに負けるリスクを意識しよう。7654のストレートはT987に負けるため、ナッツ判断を正確に行う習慣が必要だ。",
     "message": "隣り合う7と6が手を取り合えば、4つの直線が描ける。コネクテッドの絆を信じろ。",
     "thresholds": {
-      "romance": 1,
-      "utility": 9,
-      "aggression": 3,
-      "stability": 0,
-      "creative": -7,
-      "strategic": 1,
-      "meme": -7
+      "aggression": 7,
+      "romance": 4,
+      "creative": 3,
+      "stability": -1,
+      "meme": -3,
+      "utility": -6,
+      "strategic": -8
     }
   },
   {
@@ -1461,9 +1461,9 @@
     "message": "世間の評価に背を向けても、自分の美学を譲らない。74sはアウトローの誇りだ。",
     "thresholds": {
       "romance": 10,
-      "utility": -8,
+      "utility": -5,
       "aggression": 3,
-      "stability": 4,
+      "stability": 3,
       "creative": -8,
       "strategic": -2,
       "meme": 5
@@ -1521,9 +1521,9 @@
     "message": "レッドオーシャンを避け、ブルーオーシャンを泳ぐ。64sのニッチ戦略はあなた独自の勝ち方だ。",
     "thresholds": {
       "romance": 4,
-      "utility": -4,
+      "utility": -6,
       "aggression": 2,
-      "stability": 1,
+      "stability": -1,
       "creative": 10,
       "strategic": 2,
       "meme": -7
@@ -1581,12 +1581,12 @@
     "message": "「無理だ」と言われた瞬間に燃える53s。ホイールの完成は、反骨心が紡ぐ奇跡だ。",
     "thresholds": {
       "romance": 10,
-      "utility": -7,
-      "aggression": 5,
-      "stability": -3,
-      "creative": -4,
-      "strategic": -1,
-      "meme": -7
+      "aggression": 7,
+      "meme": 1,
+      "creative": 0,
+      "strategic": -4,
+      "stability": -6,
+      "utility": -9
     }
   },
   {
@@ -1671,7 +1671,7 @@
     "message": "城壁のように堅い守りの中に、鋭い槍を隠す。44の守り人は、攻守両面で輝ける。",
     "thresholds": {
       "romance": -4,
-      "utility": 7,
+      "utility": 5,
       "aggression": 4,
       "stability": 8,
       "creative": 4,
@@ -1702,11 +1702,11 @@
     "thresholds": {
       "romance": 8,
       "utility": 4,
-      "aggression": -3,
-      "stability": -3,
+      "aggression": -7,
+      "stability": -7,
       "creative": 1,
-      "strategic": 1,
-      "meme": 2
+      "strategic": 4,
+      "meme": 1
     }
   },
   {
@@ -1730,13 +1730,13 @@
     "demerit": "バランスを重視するあまり、攻めるべき場面で攻められないことがある。オーバーペアになったボードではしっかりとバリューベットする攻めの姿勢も忘れずに。均衡の番人にも、時には「傾く」勇気が必要だ。",
     "message": "攻めと守りの天秤を完璧に操る。66の均衡感覚は、嵐の中でも揺るがない。",
     "thresholds": {
-      "romance": -6,
-      "utility": 8,
-      "aggression": -7,
-      "stability": 3,
-      "creative": -2,
-      "strategic": 5,
-      "meme": 3
+      "utility": 10,
+      "strategic": 1,
+      "meme": 3,
+      "stability": -6,
+      "creative": -6,
+      "romance": -5,
+      "aggression": -8
     }
   },
   {
