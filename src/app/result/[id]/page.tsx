@@ -190,12 +190,24 @@ function parseNotation(notation: string) {
   return cards
 }
 
-function ScoreBar({ label, value, maxValue, color, delay }: {
-  label: string; value: number; maxValue: number; color: string; delay: number
+// 各軸の現実的な上限値（全30問で特化した場合の到達目安）
+const AXIS_CAPS: Record<ScoreAxis, number> = {
+  romance: 40,
+  utility: 45,
+  aggression: 40,
+  stability: 45,
+  creative: 38,
+  strategic: 50,
+  meme: 38,
+}
+
+function ScoreBar({ label, value, axis, color, delay }: {
+  label: string; value: number; axis: ScoreAxis; color: string; delay: number
 }) {
-  // 100点満点に正規化（最低0、最高100）
-  const normalized = Math.round(Math.min(Math.max((value / maxValue) * 100, 0), 100))
-  const barWidth = Math.max(normalized, 3) // 最低3%の表示幅
+  // 各軸の上限値に対する比率で100点満点に変換
+  const cap = AXIS_CAPS[axis]
+  const normalized = Math.round(Math.min(Math.max((value / cap) * 100, 0), 100))
+  const barWidth = Math.max(normalized, 2)
   return (
     <motion.div className="mb-3" initial={{ x: -20, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }}
       viewport={{ once: true }} transition={{ delay }}>
@@ -282,7 +294,7 @@ export default function ResultPage() {
   }
 
   const cards = parseNotation(hand.notation)
-  const maxScore = scores ? Math.max(...Object.values(scores).map(v => Math.abs(v)), 1) : 20
+  const maxScore = 45 // RadarChart用の統一基準値
   const compatible = compatibleHands[hand.id]
   const compatibleHand = compatible ? hands.find(h => h.id === compatible.id) : null
 
@@ -352,7 +364,7 @@ export default function ResultPage() {
               <div className="mt-5">
                 {(Object.keys(axisLabels) as ScoreAxis[]).map((axis, i) => (
                   <ScoreBar key={axis} label={axisLabels[axis]} value={scores[axis]}
-                    maxValue={maxScore} color={axisColors[axis]} delay={i * 0.04} />
+                    axis={axis} color={axisColors[axis]} delay={i * 0.04} />
                 ))}
               </div>
             </Section>
