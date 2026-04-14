@@ -10,9 +10,10 @@ export default function TopPage() {
       <InkSplats />
 
       {/* Decorative splat circles */}
-      <div className="absolute top-10 right-10 w-24 sm:w-32 h-24 sm:h-32 bg-ink-magenta/15 rounded-full blur-2xl sm:blur-3xl" />
-      <div className="absolute bottom-20 left-10 w-28 sm:w-40 h-28 sm:h-40 bg-ink-blue/15 rounded-full blur-2xl sm:blur-3xl" />
-      <div className="absolute top-1/3 left-1/4 w-14 sm:w-20 h-14 sm:h-20 bg-ink-lime/10 rounded-full blur-xl sm:blur-2xl" />
+      <div className="absolute top-10 right-10 w-28 sm:w-40 h-28 sm:h-40 bg-ink-magenta/25 rounded-full blur-2xl sm:blur-3xl" />
+      <div className="absolute bottom-32 left-10 w-32 sm:w-48 h-32 sm:h-48 bg-ink-blue/20 rounded-full blur-2xl sm:blur-3xl" />
+      <div className="absolute top-1/3 left-1/4 w-16 sm:w-24 h-16 sm:h-24 bg-ink-lime/15 rounded-full blur-xl sm:blur-2xl" />
+      <div className="absolute top-[15%] right-[30%] w-12 sm:w-16 h-12 sm:h-16 bg-ink-yellow/10 rounded-full blur-xl" />
 
       {/* Tilted background card shape */}
       <motion.div
@@ -71,18 +72,12 @@ export default function TopPage() {
         </motion.div>
       </div>
 
-      {/* Bottom ink drip decoration */}
-      <div className="absolute bottom-0 left-0 right-0 flex justify-around">
-        {[14, 18, 12, 16, 13, 19, 15, 17].map((w, i) => (
-          <div
-            key={i}
-            className="bg-ink-blue/20 rounded-t-full"
-            style={{
-              width: `${w}%`,
-              height: `${25 + i * 4}px`,
-            }}
-          />
-        ))}
+      {/* Bottom ink wave decoration - seamless */}
+      <div className="absolute bottom-0 left-0 right-0">
+        <svg viewBox="0 0 1440 80" className="w-full h-12 sm:h-16" preserveAspectRatio="none">
+          <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="rgba(0,212,255,0.12)" />
+          <path d="M0,50 C200,20 400,70 720,50 C1040,30 1240,60 1440,50 L1440,80 L0,80 Z" fill="rgba(0,212,255,0.08)" />
+        </svg>
       </div>
     </main>
   )
