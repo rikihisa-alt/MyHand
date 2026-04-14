@@ -261,11 +261,11 @@ export default function ResultPage() {
     setTimeout(() => setRevealPhase(2), 1500)
     setTimeout(() => setRevealPhase(3), 2500)
     setTimeout(() => setShowConfetti(false), 4000)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params.id])
 
   const handleShare = useCallback(() => {
     if (!hand) return
-    const name = playerName || '私'
     const txt = `${hand.notation}（${hand.typeName}）\n\n『${hand.message}』\n\nあなたのマイハンは？30問で即診断！`
     if (navigator.share) {
       navigator.share({ title: `${hand.notation}（${hand.typeName}）`, text: txt, url: 'https://my-hand-poker.com' })
@@ -273,14 +273,13 @@ export default function ResultPage() {
       navigator.clipboard.writeText(`${txt}\nhttps://my-hand-poker.com\n\n@My_Hand_Poker\n#マイハン診断`)
       alert('コピーしたよ！')
     }
-  }, [hand, playerName])
+  }, [hand])
 
   const handleTwitterShare = useCallback(() => {
     if (!hand) return
-    const name = playerName || '私'
     const text = encodeURIComponent(`${hand.notation}（${hand.typeName}）\n\n『${hand.message}』\n\nあなたのマイハンは？30問で即診断！\n\n@My_Hand_Poker\n#マイハン診断`)
-    window.open(`https://twitter.com/intent/tweet?text=${text}&url=${encodeURIComponent(window.location.origin)}`, '_blank')
-  }, [hand, playerName])
+    window.open(`https://twitter.com/intent/tweet?text=${text}&url=${encodeURIComponent('https://my-hand-poker.com')}`, '_blank')
+  }, [hand])
 
   if (!hand) {
     return (
