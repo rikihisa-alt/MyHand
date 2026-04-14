@@ -43,7 +43,7 @@ export default function EntryPage() {
 
   const canSubmit = fieldsValid && agreed
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!fieldsValid) return
     if (!agreed) {
@@ -51,6 +51,29 @@ export default function EntryPage() {
       return
     }
     sessionStorage.setItem('playerInfo', JSON.stringify(form))
+
+    // GASにデータ送信（非同期・エラーでも診断は続行）
+    const GAS_URL = process.env.NEXT_PUBLIC_GAS_URL
+    if (GAS_URL) {
+      try {
+        fetch(GAS_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            pokerName: form.pokerName,
+            email: form.email,
+            store: form.store,
+            prefecture: form.prefecture,
+            experience: form.experience,
+            timestamp: new Date().toISOString(),
+          }),
+        })
+      } catch {
+        // 送信失敗しても診断は続行
+      }
+    }
+
     router.push('/quiz')
   }
 
