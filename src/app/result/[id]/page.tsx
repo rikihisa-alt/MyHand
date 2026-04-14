@@ -123,10 +123,10 @@ function RadarChart({ scores, maxValue }: { scores: Record<ScoreAxis, number>; m
 
   return (
     <svg viewBox="0 0 300 300" className="w-full max-w-[280px] mx-auto">
-      {grid.map((d, i) => <path key={i} d={d} fill="none" stroke="#3a3a5a" strokeWidth="0.5" opacity={0.4} />)}
+      {grid.map((d, i) => <path key={i} d={d} fill="none" stroke="#5a5a7a" strokeWidth="1" opacity={0.5} />)}
       {axes.map((_, i) => {
         const a = step * i - Math.PI / 2
-        return <line key={i} x1={cx} y1={cy} x2={cx + r * Math.cos(a)} y2={cy + r * Math.sin(a)} stroke="#3a3a5a" strokeWidth="0.5" opacity={0.2} />
+        return <line key={i} x1={cx} y1={cy} x2={cx + r * Math.cos(a)} y2={cy + r * Math.sin(a)} stroke="#5a5a7a" strokeWidth="0.8" opacity={0.4} />
       })}
       <motion.path d={dataPath} fill="rgba(79,195,247,0.12)" stroke="#4FC3F7" strokeWidth="1.5"
         initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }}
@@ -394,18 +394,13 @@ export default function ResultPage() {
         {/* 生きる場面 */}
         <RevealStage>
           <Section title="このハンドが生きる場面">
-            <div className="grid grid-cols-3 gap-2.5">
-              {[
-                { label: 'ポジション', value: hand.scene.position },
-                { label: '形式', value: hand.scene.format },
-                { label: 'スタック', value: hand.scene.stack },
-              ].map(({ label, value }) => (
-                <div key={label} className="bg-ink-dark/40 border border-ink-border/50 rounded-xl p-3 text-center">
-                  <p className="text-ink-text/40 text-xs font-body mb-1">{label}</p>
-                  <p className="font-display font-bold text-sm text-ink-text/80">{value}</p>
-                </div>
-              ))}
-            </div>
+            <p className="text-ink-text/80 font-body text-base">
+              <span className="text-ink-text/50">{hand.scene.format}</span>
+              <span className="text-ink-text/30 mx-2">｜</span>
+              <span className="text-ink-text/50">{hand.scene.position}</span>
+              <span className="text-ink-text/30 mx-2">｜</span>
+              <span className="text-ink-text/50">{hand.scene.stack}スタック</span>
+            </p>
           </Section>
         </RevealStage>
 
