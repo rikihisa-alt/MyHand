@@ -65,8 +65,10 @@ export default function QuizPage() {
         } else {
           const scores = calcScores(questions, newAnswers)
           const hand = matchHand(scores, hands)
-          sessionStorage.setItem('quizResult', JSON.stringify({ scores, handId: hand.id }))
-          router.push(`/result/${hand.id}`)
+          // ランダムIDを生成してURLを推測不能にする
+          const rid = btoa(`${hand.id}:${Date.now()}`).replace(/[+/=]/g, '').slice(0, 12)
+          sessionStorage.setItem('quizResult', JSON.stringify({ scores, handId: hand.id, rid }))
+          router.push(`/result/${rid}`)
         }
       }, 400)
     } else {

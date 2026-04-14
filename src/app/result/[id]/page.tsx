@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState, useCallback } from 'react'
-import { useParams } from 'next/navigation'
+import { useParams, useRouter } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import handsData from '@/data/hands.json'
@@ -224,6 +224,7 @@ function RevealStage({ children, delay = 0 }: { children: React.ReactNode; delay
 
 export default function ResultPage() {
   const params = useParams()
+  const router = useRouter()
   const [hand, setHand] = useState<Hand | null>(null)
   const [scores, setScores] = useState<Record<ScoreAxis, number> | null>(null)
   const [showConfetti, setShowConfetti] = useState(true)
@@ -231,10 +232,17 @@ export default function ResultPage() {
   const [playerName, setPlayerName] = useState('')
 
   useEffect(() => {
-    const found = hands.find((h) => h.id === params.id)
-    if (found) setHand(found)
+    // sessionStorageからhandIdを取得（URLからは推測不能）
     const result = sessionStorage.getItem('quizResult')
-    if (result) setScores(JSON.parse(result).scores)
+    if (!result) {
+      // 直接URLを叩いた場合はトップへリダイレクト
+      router.push('/')
+      return
+    }
+    const parsed = JSON.parse(result)
+    const found = hands.find((h) => h.id === parsed.handId)
+    if (found) setHand(found)
+    setScores(parsed.scores)
     const info = sessionStorage.getItem('playerInfo')
     if (info) setPlayerName(JSON.parse(info).pokerName || '')
     setTimeout(() => setRevealPhase(1), 500)
