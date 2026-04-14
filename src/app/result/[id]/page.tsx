@@ -246,7 +246,7 @@ export default function ResultPage() {
   const handleShare = useCallback(() => {
     if (!hand) return
     const name = playerName || '私'
-    const txt = `${hand.notation}（${hand.typeName}）\n\n${name}の魂のハンド、決まりました。\n\n「${hand.message}」\n\n30問であなたのポーカー人格が丸裸に👇\n@My_Hand_Poker\n#マイハン診断 #ポーカー #マイハンでポット獲得投稿`
+    const txt = `${hand.notation}（${hand.typeName}）\n\n${name}の魂のハンド、決まりました。\n\n「${hand.message}」\n\n30問であなたのポーカー人格が丸裸に👇\n@My_Hand_Poker\n#マイハン診断\n#ポーカー\n#マイハンでポット獲得投稿`
     if (navigator.share) {
       navigator.share({ title: `${name}のマイハンは${hand.notation}`, text: txt, url: window.location.origin })
     } else {
@@ -258,7 +258,7 @@ export default function ResultPage() {
   const handleTwitterShare = useCallback(() => {
     if (!hand) return
     const name = playerName || '私'
-    const text = encodeURIComponent(`${hand.notation}（${hand.typeName}）\n\n${name}の魂のハンド、決まりました。\n\n「${hand.message}」\n\n30問であなたのポーカー人格が丸裸に👇\n@My_Hand_Poker\n#マイハン診断 #ポーカー #マイハンでポット獲得投稿`)
+    const text = encodeURIComponent(`${hand.notation}（${hand.typeName}）\n\n${name}の魂のハンド、決まりました。\n\n「${hand.message}」\n\n30問であなたのポーカー人格が丸裸に👇\n@My_Hand_Poker\n#マイハン診断\n#ポーカー\n#マイハンでポット獲得投稿`)
     window.open(`https://twitter.com/intent/tweet?text=${text}&url=${encodeURIComponent(window.location.origin)}`, '_blank')
   }, [hand, playerName])
 
