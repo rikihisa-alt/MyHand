@@ -266,9 +266,9 @@ export default function ResultPage() {
 
   const handleShare = useCallback(() => {
     if (!hand) return
-    const txt = `${hand.notation}（${hand.typeName}）\n\n『${hand.message}』\n\nあなたのマイハンは？30問で即診断！`
+    const txt = `${hand.notation}（${hand.typeName}）\n\n『${hand.message}』\n\nあなたのマイハンは？30問で即診断！\nhttps://my-hand-poker.com`
     if (navigator.share) {
-      navigator.share({ title: `${hand.notation}（${hand.typeName}）`, text: txt, url: 'https://my-hand-poker.com' })
+      navigator.share({ title: `${hand.notation}（${hand.typeName}）`, text: txt })
     } else {
       navigator.clipboard.writeText(`${txt}\nhttps://my-hand-poker.com\n\n@My_Hand_Poker\n#マイハン診断`)
       alert('コピーしたよ！')
@@ -277,8 +277,8 @@ export default function ResultPage() {
 
   const handleTwitterShare = useCallback(() => {
     if (!hand) return
-    const text = encodeURIComponent(`${hand.notation}（${hand.typeName}）\n\n『${hand.message}』\n\nあなたのマイハンは？30問で即診断！\n\n@My_Hand_Poker\n#マイハン診断`)
-    window.open(`https://twitter.com/intent/tweet?text=${text}&url=${encodeURIComponent('https://my-hand-poker.com')}`, '_blank')
+    const text = encodeURIComponent(`${hand.notation}（${hand.typeName}）\n\n『${hand.message}』\n\nあなたのマイハンは？30問で即診断！\nhttps://my-hand-poker.com\n\n@My_Hand_Poker\n#マイハン診断`)
+    window.open(`https://twitter.com/intent/tweet?text=${text}`, '_blank')
   }, [hand])
 
   if (!hand) {
