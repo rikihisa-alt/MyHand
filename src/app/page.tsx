@@ -9,9 +9,10 @@ export default function TopPage() {
     <main className="min-h-screen flex flex-col items-center justify-center bg-ink-dark relative overflow-hidden ink-dots">
       <InkSplats />
 
-      {/* Decorative splat circles - smaller on mobile */}
-      <div className="absolute top-10 right-10 w-16 sm:w-32 h-16 sm:h-32 bg-ink-magenta/10 rounded-full blur-2xl sm:blur-3xl" />
-      <div className="absolute bottom-20 left-10 w-20 sm:w-40 h-20 sm:h-40 bg-ink-blue/10 rounded-full blur-2xl sm:blur-3xl" />
+      {/* Decorative splat circles */}
+      <div className="absolute top-10 right-10 w-24 sm:w-32 h-24 sm:h-32 bg-ink-magenta/15 rounded-full blur-2xl sm:blur-3xl" />
+      <div className="absolute bottom-20 left-10 w-28 sm:w-40 h-28 sm:h-40 bg-ink-blue/15 rounded-full blur-2xl sm:blur-3xl" />
+      <div className="absolute top-1/3 left-1/4 w-14 sm:w-20 h-14 sm:h-20 bg-ink-lime/10 rounded-full blur-xl sm:blur-2xl" />
 
       {/* Tilted background card shape */}
       <motion.div
