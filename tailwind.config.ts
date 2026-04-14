@@ -24,8 +24,8 @@ const config: Config = {
         'ink-muted': '#8888aa',
       },
       fontFamily: {
-        display: ['Zen Maru Gothic', 'Rounded Mplus 1c', 'sans-serif'],
-        body: ['Zen Maru Gothic', 'sans-serif'],
+        display: ['M PLUS Rounded 1c', 'Kosugi Maru', 'sans-serif'],
+        body: ['M PLUS Rounded 1c', 'Kosugi Maru', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
       },
       keyframes: {

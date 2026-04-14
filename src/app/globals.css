@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800;900&family=Kosugi+Maru&family=JetBrains+Mono:wght@400;700&display=swap');
 
 :root {
   --ink-bg: #1a1a2e;
@@ -17,7 +17,7 @@
 body {
   color: #f0f0ff;
   background: var(--ink-dark);
-  font-family: 'Zen Maru Gothic', sans-serif;
+  font-family: 'M PLUS Rounded 1c', 'Kosugi Maru', sans-serif;
   overflow-x: hidden;
 }
 
