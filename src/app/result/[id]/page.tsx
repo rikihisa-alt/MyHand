@@ -245,18 +245,20 @@ export default function ResultPage() {
 
   const handleShare = useCallback(() => {
     if (!hand) return
-    const txt = `【マイハン診断】\n${playerName ? `${playerName}さんの` : '私の'}マイハンは${hand.notation}（${hand.typeName}）でした！\n\nあなたも診断してみよう！`
+    const name = playerName || '私'
+    const txt = `${hand.notation}（${hand.typeName}）\n\n${name}の魂のハンド、決まりました。\n\n「${hand.message}」\n\n30問答えるだけで、あなたのポーカー人格が丸裸に。\n#マイハン診断`
     if (navigator.share) {
-      navigator.share({ title: `マイハン診断: ${hand.typeName}`, text: txt, url: window.location.origin })
+      navigator.share({ title: `${name}のマイハンは${hand.notation}`, text: txt, url: window.location.origin })
     } else {
       navigator.clipboard.writeText(`${txt}\n${window.location.origin}`)
-      alert('URLをコピーしました')
+      alert('コピーしたよ！')
     }
   }, [hand, playerName])
 
   const handleTwitterShare = useCallback(() => {
     if (!hand) return
-    const text = encodeURIComponent(`【マイハン診断】\n${playerName ? `${playerName}の` : '私の'}マイハンは${hand.notation}（${hand.typeName}）\n\n「${hand.message}」\n\nあなたも診断してみよう！`)
+    const name = playerName || '私'
+    const text = encodeURIComponent(`${hand.notation}（${hand.typeName}）\n\n${name}の魂のハンド、決まりました。\n\n「${hand.message}」\n\n30問であなたのポーカー人格が丸裸に👇\n#マイハン診断 #ポーカー`)
     window.open(`https://twitter.com/intent/tweet?text=${text}&url=${encodeURIComponent(window.location.origin)}`, '_blank')
   }, [hand, playerName])
 
