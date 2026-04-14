@@ -33,8 +33,15 @@ body {
 .splat-blob {
   position: absolute;
   border-radius: 50% 40% 60% 50% / 50% 60% 40% 50%;
-  filter: blur(1px);
+  filter: blur(40px);
   pointer-events: none;
+}
+
+@media (max-width: 640px) {
+  .splat-blob {
+    transform: scale(0.45);
+    filter: blur(50px);
+  }
 }
 
 /* Ink fill animation for gauges */

@@ -3,6 +3,7 @@
 interface Splat {
   color: string
   size: number
+  mobileSize: number
   opacity: number
   top?: string
   left?: string
@@ -12,12 +13,12 @@ interface Splat {
 
 export default function InkSplats() {
   const splats: Splat[] = [
-    { color: '#00D4FF', size: 180, top: '10%', left: '-5%', opacity: 0.15 },
-    { color: '#FF2E8B', size: 140, top: '60%', right: '-3%', opacity: 0.12 },
-    { color: '#BFFF00', size: 100, bottom: '15%', left: '10%', opacity: 0.1 },
-    { color: '#FF6B35', size: 120, top: '30%', right: '15%', opacity: 0.08 },
-    { color: '#00D4FF', size: 80, bottom: '5%', right: '20%', opacity: 0.1 },
-    { color: '#FF2E8B', size: 60, top: '5%', left: '40%', opacity: 0.08 },
+    { color: '#00D4FF', size: 180, mobileSize: 80, top: '10%', left: '-5%', opacity: 0.1 },
+    { color: '#FF2E8B', size: 140, mobileSize: 60, top: '60%', right: '-3%', opacity: 0.08 },
+    { color: '#BFFF00', size: 100, mobileSize: 50, bottom: '15%', left: '10%', opacity: 0.06 },
+    { color: '#FF6B35', size: 120, mobileSize: 50, top: '30%', right: '15%', opacity: 0.06 },
+    { color: '#00D4FF', size: 80, mobileSize: 40, bottom: '5%', right: '20%', opacity: 0.06 },
+    { color: '#FF2E8B', size: 60, mobileSize: 30, top: '5%', left: '40%', opacity: 0.05 },
   ]
 
   return (

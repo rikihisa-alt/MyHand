@@ -9,18 +9,17 @@ export default function TopPage() {
     <main className="min-h-screen flex flex-col items-center justify-center bg-ink-dark relative overflow-hidden ink-dots">
       <InkSplats />
 
-      {/* Decorative splat circles */}
-      <div className="absolute top-10 right-10 w-32 h-32 bg-ink-magenta/20 rounded-full blur-2xl" />
-      <div className="absolute bottom-20 left-10 w-40 h-40 bg-ink-blue/20 rounded-full blur-2xl" />
-      <div className="absolute top-1/3 left-1/4 w-20 h-20 bg-ink-lime/15 rounded-full blur-xl" />
+      {/* Decorative splat circles - smaller on mobile */}
+      <div className="absolute top-10 right-10 w-16 sm:w-32 h-16 sm:h-32 bg-ink-magenta/10 rounded-full blur-2xl sm:blur-3xl" />
+      <div className="absolute bottom-20 left-10 w-20 sm:w-40 h-20 sm:h-40 bg-ink-blue/10 rounded-full blur-2xl sm:blur-3xl" />
 
       {/* Tilted background card shape */}
       <motion.div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-10"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.06]"
         animate={{ rotate: [6, 8, 6], y: [0, -10, 0] }}
         transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
       >
-        <div className="w-48 h-72 rounded-2xl border-4 border-ink-blue bg-ink-card rotate-6" />
+        <div className="w-36 h-52 sm:w-48 sm:h-72 rounded-2xl border-2 sm:border-4 border-ink-blue/50 rotate-6" />
       </motion.div>
 
       <div className="relative z-10 text-center px-6">
@@ -29,8 +28,8 @@ export default function TopPage() {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ type: 'spring', stiffness: 200, damping: 15, delay: 0.1 }}
         >
-          <h1 className="font-display text-6xl md:text-8xl font-black text-ink-text mb-2 tracking-tight"
-              style={{ textShadow: '4px 4px 0 #FF2E8B, -2px -2px 0 #00D4FF' }}>
+          <h1 className="font-display text-5xl sm:text-6xl md:text-8xl font-black text-ink-text mb-2 tracking-tight"
+              style={{ textShadow: '3px 3px 0 #FF2E8B, -1px -1px 0 #00D4FF' }}>
             My Hand
           </h1>
         </motion.div>
@@ -60,7 +59,7 @@ export default function TopPage() {
         >
           <Link
             href="/entry"
-            className="inline-block px-12 py-5 bg-ink-magenta text-white font-display font-black text-xl rounded-2xl
+            className="inline-block px-10 py-4 sm:px-12 sm:py-5 bg-ink-magenta text-white font-display font-black text-lg sm:text-xl rounded-2xl
                        border-b-4 border-ink-magenta/60 hover-shake ink-splash-effect
                        hover:brightness-110 active:border-b-2 active:translate-y-0.5
                        transition-all duration-150 shadow-lg shadow-ink-magenta/30"

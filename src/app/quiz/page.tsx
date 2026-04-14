@@ -88,7 +88,7 @@ export default function QuizPage() {
   const progressPercent = ((currentIndex + 1) / total) * 100
 
   return (
-    <main className="min-h-screen bg-ink-dark flex flex-col items-center justify-center px-4 py-16 relative overflow-hidden ink-dots">
+    <main className="min-h-screen bg-ink-dark flex flex-col items-center justify-center px-4 pt-16 pb-12 relative overflow-hidden ink-dots">
       <InkSplats />
 
       {/* Ink splash effect on confirm */}
